@@ -19,7 +19,6 @@ struct Day06: AdventDay {
                 }
             }
             let pGrid = grid.subgrid(x: startCol, y: 0, width: nextCol-startCol, height: grid.height-1)
-            print(pGrid)
             var puzzle = Puzzle(op: grid[startCol, opRow]!)
             for y in 0..<pGrid.height {
                 let sValue = pGrid.rowValues(for: y).joined(separator: "").trimmingCharacters(in: .whitespaces)
@@ -30,7 +29,6 @@ struct Day06: AdventDay {
                 puzzle.rvalues.append(Int(sValue) ?? 0)
             }
             puzzles.append(puzzle)
-            print("\(startCol): \(puzzles.last!)")
             startCol = nextCol + 1
             
         }

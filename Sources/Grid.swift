@@ -21,6 +21,15 @@ struct Grid {
         height = storage.count
     }
     
+    func find(_ value: String) -> (Int, Int)? {
+        for (y, row) in storage.enumerated() {
+            if let x = row.firstIndex(of: value) {
+                return (x, y)
+            }
+        }
+        return nil
+    }
+
     func indexIsValid(y: Int, x: Int) -> Bool {
         x >= 0 && x < width && y >= 0 && y < height
     }
